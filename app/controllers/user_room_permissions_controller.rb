@@ -1,4 +1,5 @@
 class UserRoomPermissionsController < ApplicationController
+
   def show
     @permission = UserRoomPermission.find_permission(params[:room_number],
                                                     params[:user_token]
@@ -8,8 +9,20 @@ class UserRoomPermissionsController < ApplicationController
   end
 
   def create
-    @permission = UserRoomPermission.create(:room_number => params[:room_number],
+    @permission = UserRoomPermission.new(:room_number => params[:room_number],
                                             :user_token => params[:user_token])
-    render status: :created
+    if @permission.save
+      render status: :created
+    else
+      render status: :forbidden
+    end
+  end
+
+  def destroy
+    @permission = UserRoomPermission.find_permission(params[:room_number],
+                                                    params[:user_token]
+                                                    )
+    @permission.destroy
+    render status: :deleted
   end
 end
