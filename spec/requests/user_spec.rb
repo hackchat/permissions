@@ -7,7 +7,7 @@ describe "User", type: :api do
                                                   :room_number => 15,
                                                   :owner => true) }
     it "lists the rooms to which user has permission" do
-      get user_path("tom", :format => "JSON")
+      get user_path("tom", :auth_token => "hi", :format => "JSON")
       response.status.should be(200)
       body = JSON.parse(response.body)
       body[0]["user_token"].should == "tom"
@@ -15,7 +15,8 @@ describe "User", type: :api do
     it "gives a notice that you have no rooms to access" do
       get user_path(56,
                                 :user_token => "marvin",
-                                :format => "json")
+                                :format => "json",
+                                :auth_token => "poth")
       response.status.should be(500)
       response.body.should have_content "You are unpopular."
     end

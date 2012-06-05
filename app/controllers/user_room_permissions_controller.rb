@@ -2,8 +2,7 @@ class UserRoomPermissionsController < ApplicationController
 
   def show
     @permission = UserRoomPermission.find_permission(params[:room_number],
-                                                    params[:user_token]
-                                                    )
+                                                    params[:user_token])
     render status: :unauthorized unless @permission
 
   end
@@ -20,8 +19,7 @@ class UserRoomPermissionsController < ApplicationController
 
   def destroy
     @permission = UserRoomPermission.find_permission(params[:room_number],
-                                                    params[:user_token]
-                                                    )
+                                                    params[:user_token])
     @permission.destroy
     render status: :deleted
   end
