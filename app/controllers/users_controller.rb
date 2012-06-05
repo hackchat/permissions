@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
   def show
     @permission = UserRoomPermission.find_all_by_user_token(params[:id])
-    if @permission != []
+    if @permission.present?
       render status: :ok
-    elsif @permission = []
-      render status: :ok, :notice => "You are unpopular."
+    else
+      render status: 500, :json => "You are unpopular."
     end
   end
 end
