@@ -11,7 +11,7 @@ class UserRoomPermissionsController < ApplicationController
     @permission = UserRoomPermission.new(:room_number => params[:room_number],
                                             :user_token => params[:user_token])
     if @permission.save
-      render status: :created
+      render status: :created, json: @permission
     else
       render status: :forbidden
     end

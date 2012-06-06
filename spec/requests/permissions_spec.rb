@@ -22,4 +22,8 @@ describe "UserRoomPermission", type: :api do
       response.status.should be(401)
     end
   end
+  it "can create a permission" do
+    post user_room_permissions_path(:user_token => "blah",auth_token: "bep", room_number: "bam")
+    response.status.should be(201)
+  end
 end
