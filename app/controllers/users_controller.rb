@@ -8,4 +8,5 @@ class UsersController < ApplicationController
       render status: 500, :json => "You are unpopular."
     end
   end
+
 end

@@ -26,4 +26,9 @@ describe "UserRoomPermission", type: :api do
     post user_room_permissions_path(:user_token => "blah",auth_token: "bep", room_number: "bam")
     response.status.should be(201)
   end
+  it "can destroy a permission" do
+    delete user_room_permission_path(:user_token => "blah",auth_token: "bep", room_number: "bam")
+    response.status.should be(200)
+  end
+
 end
