@@ -7,7 +7,7 @@ describe "UserRoomPermission", type: :api do
     it "lists the permission" do
       get user_room_permission_path(1,
                                 :user_token => user_room_permission.user_token,
-                                :room_number => user_room_permission.room_number,
+                                :room_token => user_room_permission.room_token,
                                 :auth_token => "auth",
                                 :format => "json")
       response.status.should be(200)
@@ -16,7 +16,7 @@ describe "UserRoomPermission", type: :api do
     it "gives a 401 error if there is no permission" do
       get user_room_permission_path(1,
                                 :user_token => "wrong",
-                                :room_number => user_room_permission.room_number,
+                                :room_token => user_room_permission.room_token,
                                 :auth_token => "auth",
                                 :format => "json")
       response.status.should be(401)
