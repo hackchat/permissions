@@ -7,7 +7,7 @@ describe "Room", type: :api do
                                                   :room_token => "melanie",
                                                   :owner => true) }
     it "lists the users for a room" do
-      get room_path(:room_token => "melanie", :auth_token => "hi", :format => "JSON")
+      get room_path("melanie", :auth_token => "hi", :format => "JSON")
       response.status.should be(200)
       body = JSON.parse(response.body)
       body[0]["user_token"].should == "tom"
