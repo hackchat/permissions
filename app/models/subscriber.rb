@@ -9,7 +9,7 @@ private
     @redis.subscribe(channel) do |on|
       on.message do |channel, message|
         parsed_json = JSON.parse(message)
-        yield(parsed_json)
+        yield(parsed_json, parsed_json["type"])
       end
     end
   end
