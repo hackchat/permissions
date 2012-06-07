@@ -9,7 +9,6 @@ class RoomsController < ApplicationController
     end
   end
 
-
   def create
     @permission = UserRoomPermission.new(:room_token => params[:room_token],
                                             :user_token => params[:user_token])
