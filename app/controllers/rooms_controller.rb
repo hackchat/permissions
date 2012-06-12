@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
 
   def show
-    @permission = UserRoomPermission.find_all_by_room_token(params[:id])
+    @permission = UserRoomPermission.find_all_by_room_id(params[:id])
     if @permission.present?
       render status: :ok
     else
@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @permission = UserRoomPermission.new(:room_token => params[:room_token],
+    @permission = UserRoomPermission.new(:room_id => params[:room_id],
                                             :user_token => params[:user_token])
     if @permission.save
       render status: :created, json: @permission
