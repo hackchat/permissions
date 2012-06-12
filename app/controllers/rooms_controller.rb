@@ -1,7 +1,11 @@
 class RoomsController < ApplicationController
 
+  def index
+    
+  end
+
   def show
-    @permission = UserRoomPermission.find_all_by_room_token(params[:id])
+    @permission = UserRoomPermission.find_all_by_room_id(params[:id])
     if @permission.present?
       render status: :ok
     else
