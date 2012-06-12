@@ -1,5 +1,5 @@
 Permissions::Application.routes.draw do
-  resources :user_room_permissions, :only => [:show, :create, :destroy]
-  resources :rooms, :only => :show
+  resource :user_room_permission, :only => [:show]
+  resources :rooms, :only => [:show, :create, :destroy]
   resources :users, :only => :show
 end
