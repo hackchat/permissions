@@ -7,4 +7,5 @@ class UserRoomPermission < ActiveRecord::Base
     UserRoomPermission.where(:room_id => room,
                              :user_token => user_token).first
   end
+
 end
