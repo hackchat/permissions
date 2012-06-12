@@ -11,34 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604204026) do
-
-  create_table "permissions", :force => true do |t|
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "user_token_id"
-    t.integer  "room_id"
-    t.boolean  "owner"
-  end
-
-  create_table "rooms", :force => true do |t|
-    t.integer  "room"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120603212739) do
 
   create_table "user_room_permissions", :force => true do |t|
     t.string   "user_token"
-    t.integer  "room_number"
-    t.boolean  "owner",       :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-  end
-
-  create_table "user_tokens", :force => true do |t|
-    t.string   "user_token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "room_token"
+    t.boolean  "owner",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
