@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @permission = UserRoomPermission.new(:room_token => params[:room_token],
+    @permission = UserRoomPermission.new(:room_id => params[:room_id],
                                             :user_token => params[:user_token])
     if @permission.save
       render status: :created, json: @permission
