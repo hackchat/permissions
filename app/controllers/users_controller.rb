@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if @permission.present?
       render status: :ok
     else
-      render status: 500, :json => "You are unpopular."
+      render status: 401, :json => "You are unpopular."
     end
   end
 
