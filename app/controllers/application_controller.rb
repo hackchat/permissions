@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :logged_in?
 
   def logged_in?
-    unless params[:auth_token]
-      render status: :unauthorized, :json => false
-    end
+    render status: :unauthorized, :json => false unless params[:auth_token]
   end
+
 end
