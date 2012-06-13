@@ -4,7 +4,7 @@ describe "User", type: :api do
 
   describe "GET /users.json" do
     let!(:permission_1) { UserRoomPermission.create(:user_token => "tom",
-                                                  :room_token => "melanie",
+                                                  :room_id => "melanie",
                                                   :owner => true) }
     it "lists the rooms to which user has permission" do
       get user_path("tom", :auth_token => "hi", :format => "JSON")

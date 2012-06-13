@@ -34,7 +34,7 @@ gem 'capybara'
 # To use Jbuilder templates for JSON
 gem 'jbuilder'
 gem 'redis'
-
+gem 'faraday'
 # Use unicorn as the app server
 gem 'unicorn'
 
