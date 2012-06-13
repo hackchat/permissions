@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  before_filter :require_login
+  # before_filter :require_login
 
   def require_login
-    unless session[:user_token]
+    unless session[:user_token] || params[:auth_token]
       if Rails.env.production?
         redirect_to "http://login.hackchat.in"
       else
@@ -11,4 +11,5 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
 end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120603212739) do
 
   create_table "user_room_permissions", :force => true do |t|
     t.string   "user_token"
-    t.string   "room_token"
+    t.string   "room_id"
     t.boolean  "owner",      :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false

@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    @permission = UserRoomPermission.find_all_by_user_token(params[:id])
-    if @permission.present?
+    @permissions = UserRoomPermission.find_all_by_user_token(params[:id])
+    if @permissions.present?
       render status: :ok
     else
-      render status: 401, :json => "You are unpopular."
+      render status: 401, :json => []
     end
   end
 

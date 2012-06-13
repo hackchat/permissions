@@ -1,5 +1,6 @@
 if @permission
-  json.(@permission, :user_token, :room_id, :owner)
+  json.permission true
+  json.owner @permission.owner
 else
   json.permission false
 end
