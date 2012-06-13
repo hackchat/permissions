@@ -1,5 +1,4 @@
 class UserRoomPermission < ActiveRecord::Base
-
   attr_accessible :user_token, :room_id, :owner
   validates_uniqueness_of :room_id, :scope => [:user_token]
 

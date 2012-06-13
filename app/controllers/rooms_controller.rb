@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
     if @permissions.present?
       render status: :ok
     else
-      render status: 403, :json => "This party is lame!"
+      render status: :ok
     end
   end
 
