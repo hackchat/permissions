@@ -17,8 +17,7 @@ describe "User", type: :api do
                                 :user_token => "marvin",
                                 :format => "json",
                                 :auth_token => "poth")
-      response.status.should be(500)
-      response.body.should have_content "You are unpopular."
+      response.body.should == "[]"
     end
   end
 end

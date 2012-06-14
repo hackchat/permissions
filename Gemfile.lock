@@ -99,8 +99,11 @@ GEM
     net-ssh (2.5.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    newrelic_rpm (3.3.5)
     nokogiri (1.5.3)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -190,6 +193,8 @@ DEPENDENCIES
   jquery-rails
   launchy
   mysql2
+  newrelic_rpm
+  quiet_assets
   rails (= 3.2.3)
   redis
   rspec-rails

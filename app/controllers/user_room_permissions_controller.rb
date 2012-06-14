@@ -1,14 +1,18 @@
 class UserRoomPermissionsController < ApplicationController
 
   def show
-    @permission = UserRoomPermission.find_permission(params[:room_id],
+    if @permission = UserRoomPermission.find_permission(params[:room_id],
                                                      params[:user_token])
-    render status: :ok unless @permission
+      render status: :ok
+    else
+      render status: :unauthorized
+    end
   end
 
   def create
     @permission = UserRoomPermission.new(:room_id => params[:room_id],
-                                         :user_token => params[:user_token])
+                                         :user_token => params[:user_token],
+                                         :owner => params[:owner])
     if @permission.save
       render status: :created, json: @permission
     else
