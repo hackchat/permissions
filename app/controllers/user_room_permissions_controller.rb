@@ -21,10 +21,10 @@ class UserRoomPermissionsController < ApplicationController
   end
 
   def destroy
-    @permission = UserRoomPermission.find_permission(params[:id],
-                                                     params[:user_token])
+    @permission = UserRoomPermission.find_permission(params["room_id"],
+                                                     params["user_token"])
     @permission.destroy
-    render status: :ok, json: true
+    redirect_to "#{CHAT}rooms/#{params["room_id"]}/permissions"
   end
 
 end
